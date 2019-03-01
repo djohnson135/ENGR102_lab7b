@@ -23,36 +23,43 @@ Section : 409
 Assignment : lab 7b - 1
 Date : 2-28-19
 """
+# define variables
+# creat strings
 word = ''
+#list for vowels
 vowel = ['a', 'e', 'i', 'o','u','y','A','E','I','O','U','Y']
 stryay = 'yay'
 stray = 'ay'
 space = ' '
 complete = ''
+#empty list that will later be used to compile a sentence
 sentence = []
-consanent = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'X', 'Z', 'W']
-consanentlo = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'x', 'z', 'w']
+#list of capitalized consonants
+consonant = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'X', 'Z', 'W']
+#list of lowercase consonants
+consonantlo = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'x', 'z', 'w']
+#loop for the continous input of words
 while word != 'stop':
-    word = input('what is your word?(stop quits code) ')
-    if space in word:
-        line = word.split()
-        for word in line:
-            if word[0] in vowel:
+    word = input('what is your word?(stop quits code) ') # word input
+    if space in word: # space means a sentence
+        line = word.split() # line is a list that equals each word in the sentence
+        for word in line: # for loop in list line
+            if word[0] in vowel: # statements to transfer to Pig Latin
                 word = word + stryay
-                sentence.append(word)
-            elif word[0] in consanent or word[0] in consanentlo and word != 'stop':
+                sentence.append(word) # append word to empty list
+            elif word[0] in consonant or word[0] in consonantlo and word != 'stop':
                 wcons = word[0]
                 word = word[1:]
                 word = word + wcons + stray
-                sentence.append(word)
-        complete = ' '.join(i for i in sentence)
-        print(complete)
-        sentence = []
-    
+                sentence.append(word) # append word to empty list
+        complete = ' '.join(i for i in sentence) # creates a string from the list
+        print(complete) # print list
+        sentence = [] # resets the list
+    # transfering to pig latin for one word
     elif word[0] in vowel:
         word = word + stryay
         print(word)
-    elif word[0] in consanent or word[0] in consanentlo and word != 'stop':
+    elif word[0] in consonant or word[0] in consonantlo and word != 'stop':
         wcons = word[0]
         word = word[1:]
         word = word + wcons + stray

@@ -32,35 +32,40 @@ Section : 409
 Assignment : lab 7b - 3
 Date : 2-28-19
 """
+# define variables
 k = 0
 guess1 =''
 guess2 = ''
+#make empty list
 passlist = []
 userlist = []
+# num = input of how many pass/user
 Num = int(input('Number of usernames/passwords: '))
+# loop to ask for pass/user
+# these username and passwords are added to a list
+# the password has to match the correct username corresponding to it
 for i in range(0,Num):
     username = input('username: ')
     userlist.append(username)
-
-for i in range(0,Num):
     password = input('password: ')
     passlist.append(password)
 i = 1
-while i > 0:
-    guess1 = input('What is your username? ')
-    guess2 = input('what is your password? ')
-    if guess1 in userlist[k] and guess2 in passlist[k]:
+#infinite while loop that only gets resolved for correct username and password
+# The username and password have to match up to the same entries
+while i > 0: # i was set to 1 so this loop is infinite
+    guess1 = input('What is your username? ') # asking
+    guess2 = input('what is your password? ') # asking
+    for k in range(Num): # range of num is how many items that are in the list
+        if guess1 in userlist[k] and guess2 in passlist[k]: # if both list indexes match you pass
+            break
+        else: # breaks to exit the infinite loops
+            continue # if the if statement is not resolved the code is continued
         break
     else:
-        k += 1
         continue
     break
-
+# print statement when loop has been resolved
 print('You are allowd into the system')
 
-
-
-print(userlist)
-print(passlist) 
 
 
